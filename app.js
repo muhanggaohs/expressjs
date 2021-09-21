@@ -6,7 +6,16 @@ app.set('views', './views') // specify the views directory
 app.set('view engine', 'ejs') // register the template engine
 
 app.get('/', (req, res) => {
-    res.render('index')
+    const buah = [
+        { name: 'apel' },
+        { name: 'mangga' },
+        { name: 'melon' }
+    ]
+    res.render('index', {
+        nama: 'Angga',
+        stack: 2021,
+        buah: buah
+    })
 })
 
 app.get('/:name', (req, res) => res.send(`Name : ${req.params.name}`));
